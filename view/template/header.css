@@ -1,0 +1,44 @@
+@font-face{
+	font-family: "sant elia";
+	src: url('/view/fonts/SantEliaScript-BoldDEMO.otf') format("opentype");
+}
+.header a{
+	color:#fff;
+	text-decoration: none;
+}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	background: #689CD2;
+	color: #fff;
+	font-family: Uni Sans;
+}
+
+.header__section{
+	display: flex;
+	align-items: center;
+}
+
+.header__item{
+	padding: 10px 15px;
+	font-size: 20px;
+	margin-left: 5px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.header__item:hover{
+	background: #365170;
+}
+
+.headerLogo{
+	font-size: 35px;
+	
+	font-family: sant elia;
+}
+.headerButton a{
+	cursor: pointer;
+}

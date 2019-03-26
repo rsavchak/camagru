@@ -1,0 +1,306 @@
+.footer {
+  background: #F0F0E9;
+}
+html,
+body {
+  height: 100%;
+}
+#wrap {
+  min-height: 100%;
+}
+main {
+  padding-bottom: 100px;
+  /*Высота футера*/
+}
+/*footer {
+  margin-top: -100px;
+  Минус Высота футера
+  height: 100px;
+  /*Высота футера
+}*/
+.right {
+  text-align: right;
+}
+.reg_form{
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 5px;
+  border-color: #F0F0E9;
+  background: #F0F0E9;
+  width: 400px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  padding: 10px;
+}
+.group{
+  margin: 10px;
+  padding: 5px;
+}
+
+.group label{
+  padding-left: 10px;
+}
+.group input{
+  margin-top: 10px;
+  height: 25px;
+  width: 350px;
+}
+.submit{
+  padding: 10px 30px;
+  border: none;
+  background: #689CD2;
+  color: #fff;
+}
+.submit:hover{
+  background: #365170;
+}
+.send{
+  height: 40px;
+  border: none;
+  background: #365170;
+  color: #fff;
+}
+.send:hover{
+  background: #689CD2;
+}
+
+video {
+  width: 640px;
+  height: 480px;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid #ccc;
+}
+.canv{ 
+    background-image: url("../img/photo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 320px;
+    height: 240px;
+    border: 3px solid gainsboro;
+    border-radius: 5px;
+}
+
+.center{
+  width: 1330px;
+  display: flex;
+  padding-left: 5px;
+  margin-top: 20px;
+
+}
+canvas {
+
+}
+.image{
+  padding-left: 10px;
+
+}
+.snap {
+  position: relative;
+}
+.snap video{
+  display: block;
+}
+.snap input{
+  width: 100%;
+  height: 60px;
+}
+
+#shot{
+  background: #365170;
+  color: #fff;
+}
+#shot:hover{
+  background: #689CD2;
+  
+}
+
+#imgBtns {
+  display: none;
+}
+#imgBtns input{
+  border: none;
+  width: 49%;
+  height: 40px;
+  background: #365170;
+  color: #fff;
+}
+#imgBtns input:hover{
+  background: #689CD2;
+}
+#user_id{
+  display: none;
+}
+
+.upload{
+  display: none;
+}
+
+.right_galery{
+  width: 350px;
+  height: 540px;
+ 
+  margin-left: 10px;
+  overflow-y: scroll;
+}
+.img_gal{
+  width: 100%;
+  height: 40%;
+  border-radius: 5px;
+
+}
+
+.img_gal:hover{
+box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.del_img{
+  width: 100%;
+  margin-bottom: 5px;
+  background: #365170;
+  color: #fff;
+  border: none;
+  height: 30px;
+  margin-top: -4px;
+}
+.del_img:hover{
+   background: #689CD2;
+}
+.image_box
+{
+  margin-top: 20px;
+  width: 90%;
+  display: inline-block;
+}
+
+.picture{
+  display: inline-block;
+
+  width: 30%;
+}
+
+.pagination li {
+  display: inline;
+  margin-left: 5px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 60%;
+}
+.comment hr{
+  color: white;
+}
+
+.comment_form{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.commentBox{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  margin-bottom: 5px;
+}
+
+.commentBox:hover{
+ box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.text_comment{
+  text-align: left;
+}
+
+.date_comment{
+  text-align: left;
+  color: darkgray;
+  font-style: italic;
+  font-size: small;
+  margin-top: 5px;
+  margin-bottom: -15px;
+}
+#delete_comment{
+  text-align: right;
+  color: grey;
+}
+
+.like {
+  width: 60px;
+  height: 40px;
+  float: left;
+  cursor: pointer;
+}
+
+.like.unliked{
+  background-image: url("../img/image(1).png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.like.liked{
+  background-image: url("../img/image.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.likes{
+  width: 130px;
+  height: 40px;
+  position: relative;
+  right: 255px;
+
+}
+
+.likes_quantity{
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  position: relative;
+  right: 30px;
+  bottom: 7px;
+}
+.content{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 60%;
+}
+.icons{
+  display: flex;
+  width: 1330px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 5px solid gainsboro;
+  border-radius: 5px;
+  overflow-x: scroll;
+}
+
+.icon_in_block{
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 150px;
+}
+
+.img_icon{
+  width: 170px;
+  height: 120px;
+  margin-left: 5px;
+  border-left: 1px solid grey;
+}
+
+.img_icon:hover{
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.icon_block{
+  width: 640px;
+  height: 480px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+}
