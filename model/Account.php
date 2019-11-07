@@ -81,7 +81,7 @@ class Account{
 	public static function auth($user){
 		$_SESSION['user'] = $user['user_id'];
 		$_SESSION['login'] = $user['login'];
-		$_SESSION['comment'] = $user['mail_com'];
+		$_SESSION['comment'] = $user['mail_com'] ?? "";
 	}
 
 	public static function editUser($login, $email, $password, $user_id){

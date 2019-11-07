@@ -10,16 +10,17 @@ InitDragDrop();
 function InitDragDrop(){
 	document.onmousedown = OnMouseDown;
 	document.onmouseup = OnMouseUp;
-	document.onwheel = OnWheel;
+	//document.onwheel = OnWheel;
 }
+
+window.addEventListener('wheel', onWheel, {passive: false});
 
 function OnMouseDown(e){
 	if (e == null)
 		e = window.event;
 
 	var target = e.target;
-	if (target.className == 'icon_in_block')
-		console.log('clicked');
+	 
 	if ((e.which == 1 && window.event != null || e.button == 0) &&
 		target.className == 'icon_in_block')
 	{
@@ -34,9 +35,7 @@ function OnMouseDown(e){
 		dragElement = target;
 
 		document.onmousemove = OnMouseMove;
-
 		document.body.focus();
-
 		document.onselectstart = function(){return false;};
 		target.ondragstart = function(){return false;};
 		return false;
@@ -48,12 +47,11 @@ function OnMouseDown(e){
 function OnMouseMove(e){
 	if (e == null)
 		var e = window.event;
-
 	dragElement.style.left = (offsetX + e.clientX - startX) + 'px';
 	dragElement.style.top = (offsetY + e.clientY - startY) + 'px';
 }
 
-function OnWheel(e){
+function onWheel(e){
 	var e = e || window.event;
 	var target = e.target;
 
@@ -75,7 +73,6 @@ function OnWheel(e){
 			 	width /= 1.1;
 			 	height /= 1.1;
 			 }
-			 console.log(width);
 			target.style.width = width + 'px';
 			target.style.height = height + 'px';
 		};

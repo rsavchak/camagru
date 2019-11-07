@@ -3,7 +3,7 @@
 class SiteController{
 
 	public function actionIndex(){
-		if($_SESSION['user'] != NULL)
+		if(isset($_SESSION['user']) && $_SESSION['user'] != NULL)
 			header("Location: /cam/");
 		else
 			header("Location: /setup/");
@@ -18,7 +18,7 @@ class SiteController{
 	}
 
 	public function actionCam(){
-		if (!$_SESSION['user'])
+		if (empty($_SESSION['user']))
 			header("Location: /login/");		
 		$user_id = $_SESSION['user'];
 		$images = Image::getImagesByUserId($user_id);
@@ -31,16 +31,16 @@ class SiteController{
 		if (isset($_POST))
 		{
 			$user_id = intval($_POST['user_id']);
-			$source = $_POST['source'];
-			$path = "./galery/" . $user_id . time() . ".png";
 
-			$img = str_replace("data:image/png;base64,", "", $source);
-			$img = str_replace(" ", "+", $img);
-			$dec = base64_decode($img);
+			$source = "./galery/temp.png";
+			$path = "./galery/" . $user_id . time() . ".png";
+			var_dump($_POST, $source);
+			if (strstr($_POST['source'], substr($source, 1)))
+				$img = file_get_contents($source);
 			if (!is_dir("./galery/"))
 				mkdir("./galery/");
-			file_put_contents($path, $dec);
-			$res = Image::uploadImage($user_id, $path, $dec);
+			file_put_contents($path, $img);
+			$res = Image::uploadImage($user_id, $path);
 			if ($res)
 				echo "$res";
 		}

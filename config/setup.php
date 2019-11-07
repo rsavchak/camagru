@@ -17,7 +17,6 @@ class Setup{
 		(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		user_id INT NOT NULL,
 		path_image VARCHAR(255) NOT NULL,
-		image TEXT NOT NULL,
 		FOREIGN KEY (user_id) REFERENCES users (user_id) ON DELETE CASCADE);";
 
 		$sql .= "CREATE TABLE IF NOT EXISTS comments 
@@ -38,7 +37,7 @@ class Setup{
 
 		$admin_password = "12345678";
 		$admin_password = hash('whirlpool', $admin_password);
-		$sql .= " INSERT INTO users (user_id, login, password, email, status) VALUES (1, 'admin', '" . $admin_password . "', 'admin@ukr.net', 1);";
+		$sql .= " INSERT INTO users (user_id, login, password, email, status) VALUES (1, 'admin', '" . $admin_password . "', 'admin111@ukr.net', 1);";
 		$result = $db->exec($sql);
 		return $result;
 	}

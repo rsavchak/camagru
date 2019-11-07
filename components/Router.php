@@ -34,8 +34,8 @@ class Router
 					include_once($controllerFile);
 				}
 				$controllerObject = new $controllerName;
-					// echo "$controllerName\n";
-					 // echo "$actionName";
+					 // echo "$controllerName\n";
+					 //  echo "$actionName";
 				$result = call_user_func_array(array($controllerObject, $actionName), $parameters);
 				if ($result != null)
 					break;

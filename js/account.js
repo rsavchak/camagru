@@ -1,7 +1,8 @@
 window.onload = function(){
 
 	var select = document.getElementById("select");
-	select.addEventListener('change', changeMail, false);
+	if(select)
+		select.addEventListener('change', changeMail, false);
 
 	function changeMail(){
 		var option = this;
@@ -16,7 +17,7 @@ window.onload = function(){
 		req.onreadystatechange = function(){
 			if ((req.readyState == 4) && (req.status == 200))
 			{	
-				console.log(req.responseText);
+				
 			}
 		};
 	}

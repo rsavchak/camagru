@@ -2,7 +2,7 @@
 
 class Mail{
 
-		public static function sendMail($email, $token){
+	public static function sendMail($email, $token){
 		if ($email)
 		{
 			$mail_to = $email;
@@ -20,19 +20,19 @@ class Mail{
 			"line-length" => 76,
 			"line-break-chars" => "\r\n"
 			);
-	
+
 			$header = "Content-type: text/html; charset=".$encoding." \r\n";
 			$header .= "From: " . $from_mail . " \r\n";
 			$header .= "MIME-Version: 1.0 \r\n";
 			$header .= "Content-Transfer-Encoding: 8bit \r\n";
 			$header .= "Date: ".date("r (T)")." \r\n";
 			$header .= iconv_mime_encode("Subject", $mail_subject, $subject_preferences);
-			return mail($mail_to, $mail_subject, $mail_message);
+			return mail($mail_to, $mail_subject, $mail_message, $header);
 		}
 		return false;
 	}
 
-		public static function sendPass($email, $pass){
+	public static function sendPass($email, $pass){
 		if ($email)
 		{
 			$mail_to = $email;
@@ -49,19 +49,19 @@ class Mail{
 			"line-length" => 76,
 			"line-break-chars" => "\r\n"
 			);
-	
+
 			$header = "Content-type: text/html; charset=".$encoding." \r\n";
 			$header .= "From: " . $from_mail . " \r\n";
 			$header .= "MIME-Version: 1.0 \r\n";
 			$header .= "Content-Transfer-Encoding: 8bit \r\n";
 			$header .= "Date: ".date("r (T)")." \r\n";
 			$header .= iconv_mime_encode("Subject", $mail_subject, $subject_preferences);
-			return mail($mail_to, $mail_subject, $mail_message);
+			return mail($mail_to, $mail_subject, $mail_message, $header);
 		}
 		return false;
 	}
 
-		public static function sendCommentMail($user_image){
+	public static function sendCommentMail($user_image){
 		if ($user_image['email'])
 		{
 			$mail_to = $user_image['email'];
@@ -85,9 +85,8 @@ class Mail{
 			$header .= "Content-Transfer-Encoding: 8bit \r\n";
 			$header .= "Date: ".date("r (T)")." \r\n";
 			$header .= iconv_mime_encode("Subject", $mail_subject, $subject_preferences);
-			return mail($mail_to, $mail_subject, $mail_message);
+			return mail($mail_to, $mail_subject, $mail_message, $header);
 		}
 		return false;
-
 	}
 }

@@ -5,12 +5,11 @@ class AccountController
 
 	public function actionIndex()
 	{
-		if(isset($_SESSION['user']))
-		{
-			$user = Account::getUser($_SESSION['user']);
-			require_once (ROOT."/view/account/account.php");
-		}
-		header("Location: /login/");
+		if (empty($_SESSION['user']))
+			header("Location: /login/");
+		$user = Account::getUser($_SESSION['user']);
+		require_once (ROOT."/view/account/account.php");
+		
 		return true;
 	}
 
@@ -101,37 +100,35 @@ class AccountController
 
 
 	public function actionEdit(){
-		if (isset($_SESSION['user']))
+		if (empty($_SESSION['user']))
+			header("Location: /login/");
+		if (isset($_POST['submit']))
 		{
-			$user = Account::getUser($_SESSION['user']);
-			if (isset($_POST['submit']))
+			$login = $_POST['login'];
+			$email = $_POST['email'];
+			$old_password = $_POST['old_passwd'];
+			$new_password = $_POST['new_passwd'];
+			$errors = false;
+			if (Account::checkPassword($new_password, $new_password))
 			{
-				$login = $_POST['login'];
-				$email = $_POST['email'];
-				$old_password = $_POST['old_passwd'];
-				$new_password = $_POST['new_passwd'];
-				$errors = false;
-				if (Account::checkPassword($new_password, $new_password))
-				{
-					$account = Account::getUserId($user['login'], hash('whirlpool', $old_password));
-					if (isset($account['user_id']))
-					{	
-						$new_password = hash('whirlpool', $new_password);
-						$res = Account::editUser($login, $email, $new_password, $_SESSION['user']);
-						if ($res)
-							$res = "Account was edited.";
-						else
-							$res = "Try again.";
-					}
+				$account = Account::getUserId(Account::getUser($_SESSION['user'])['login'], hash('whirlpool', $old_password));
+				if (isset($account['user_id']))
+				{	
+					$new_password = hash('whirlpool', $new_password);
+					$res = Account::editUser($login, $email, $new_password, $_SESSION['user']);
+					if ($res)
+						$res = "Account was edited.";
 					else
-						$errors[] = "Incorrect password";
+						$res = "Try again.";
 				}
 				else
-					$errors[] = "Bad password";
+					$errors[] = "Incorrect password";
 			}
-			require_once (ROOT."/view/account/edit.php");
+			else
+				$errors[] = "Bad password";
 		}
-		header("Location: /login/");
+		$user = Account::getUser($_SESSION['user']);
+		require_once (ROOT."/view/account/edit.php");
 		return true;
 	}
 

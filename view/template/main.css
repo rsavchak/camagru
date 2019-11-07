@@ -1,48 +1,5 @@
-.footer {
-  background: #F0F0E9;
-}
-html,
-body {
-  height: 100%;
-}
-#wrap {
-  min-height: 100%;
-}
-main {
-  padding-bottom: 100px;
-  /*Высота футера*/
-}
-/*footer {
-  margin-top: -100px;
-  Минус Высота футера
-  height: 100px;
-  /*Высота футера
-}*/
 .right {
   text-align: right;
-}
-.reg_form{
-  margin: 0 auto;
-  margin-top: 20px;
-  border-radius: 5px;
-  border-color: #F0F0E9;
-  background: #F0F0E9;
-  width: 400px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-  padding: 10px;
-}
-.group{
-  margin: 10px;
-  padding: 5px;
-}
-
-.group label{
-  padding-left: 10px;
-}
-.group input{
-  margin-top: 10px;
-  height: 25px;
-  width: 350px;
 }
 .submit{
   padding: 10px 30px;
@@ -62,7 +19,13 @@ main {
 .send:hover{
   background: #689CD2;
 }
-
+.file_upload{
+  width: 640px;
+  height: 480px;
+  border: 1px solid #ccc;
+  justify-content: center;
+  align-items: center;
+}
 video {
   width: 640px;
   height: 480px;
@@ -80,18 +43,7 @@ video {
     border-radius: 5px;
 }
 
-.center{
-  width: 1330px;
-  display: flex;
-  padding-left: 5px;
-  margin-top: 20px;
-
-}
 canvas {
-
-}
-.image{
-  padding-left: 10px;
 
 }
 .snap {
@@ -119,7 +71,7 @@ canvas {
 }
 #imgBtns input{
   border: none;
-  width: 49%;
+  width: 100%;
   height: 40px;
   background: #365170;
   color: #fff;
@@ -138,15 +90,12 @@ canvas {
 .right_galery{
   width: 350px;
   height: 540px;
- 
-  margin-left: 10px;
   overflow-y: scroll;
 }
 .img_gal{
   width: 100%;
   height: 40%;
   border-radius: 5px;
-
 }
 
 .img_gal:hover{
@@ -174,7 +123,6 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
 
 .picture{
   display: inline-block;
-
   width: 30%;
 }
 
@@ -183,35 +131,9 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
   margin-left: 5px;
 }
 
-.comment {
-  display: flex;
-  flex-direction: column;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 60%;
-}
-.comment hr{
-  color: white;
-}
-
-.comment_form{
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-}
-
-.commentBox{
-  display: flex;
-  flex-direction: column;
-  border: 1px solid gray;
-  margin-bottom: 5px;
-}
-
-.commentBox:hover{
- box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
 .text_comment{
   text-align: left;
+  max-width: 598px;
 }
 
 .date_comment{
@@ -221,10 +143,6 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
   font-size: small;
   margin-top: 5px;
   margin-bottom: -15px;
-}
-#delete_comment{
-  text-align: right;
-  color: grey;
 }
 
 .like {
@@ -248,27 +166,11 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
   background-position: center;
 }
 
-.likes{
-  width: 130px;
-  height: 40px;
-  position: relative;
-  right: 255px;
-
+.likes_quantity h3{
+  font-family: Uni Sans;
+  line-height: 1.4;
 }
 
-.likes_quantity{
-  display: inline-block;
-  width: 60px;
-  height: 40px;
-  position: relative;
-  right: 30px;
-  bottom: 7px;
-}
-.content{
-  margin-top: 20px;
-  margin-bottom: 20px;
-  width: 60%;
-}
 .icons{
   display: flex;
   width: 1330px;
@@ -303,4 +205,80 @@ box-shadow: 0 0 10px rgba(0,0,0,0.5);
   overflow: hidden;
   position: absolute;
   top: 0;
+}
+
+@media screen and (max-width: 1325px){
+  .snap{
+    margin-right: auto;
+    padding-left: 10px;
+  }
+  
+  .image, .right_galery {
+    width: 425px;
+  }
+  .canv{
+    width: inherit;
+    height: 290px;
+  }
+}
+
+@media screen and (max-width: 1090px){
+  .snap{
+    margin-left: auto;
+
+  }
+  .image{
+    width: 425px;
+  }
+  
+  .canv{
+    width: inherit;
+    height: 290px;
+  }
+}
+
+@media screen and (max-width: 995px){
+  .snap{
+    margin-left: auto;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 655px){
+  #video, .icon_block, #uploaded_img, #file-input{
+    width: 600px;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 605px){
+  #video, .icon_block, #uploaded_img, #file-input{
+    width: 550px;
+    height: 410px;
+  }
+}
+@media screen and (max-width: 555px){
+  #video, .icon_block, #uploaded_img, #file-input{
+    width: 500px;
+    height: 372px;
+  }
+}
+@media screen and (max-width: 505px){
+  #video, .icon_block, #uploaded_img, #file-input{
+    width: 450px;
+    height: 334px;
+  }
+}
+@media screen and (max-width: 455px){
+  #video, .icon_block, #uploaded_img, #file-input{
+    width: 400px;
+    height: 295px;
+  }
+  .image{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 400px){
+  #video, .icon_block, #uploaded_img, #file-input{
+    width: 320px;
+    height: 240px;
+  }
 }

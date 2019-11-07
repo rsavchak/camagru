@@ -8,14 +8,15 @@ class CommentController{
 			$user_id = $_POST['user_id'];
 			$image_id = $_POST['image_id'];
 			$comment = $_POST['comment'];
+			if (strlen($comment) > 2000)
+				$comment = substr($comment, 0, 2000);
 			$comment = htmlentities($comment);
-			$res = Comment::addComment($image_id, $user_id, $comment);
+			$id = Comment::addComment($image_id, $user_id, $comment);
 			$user_image = Account::getUserByImage($image_id);
 			if ($user_image['mail_com'] == 1)
 				Mail::sendCommentMail($user_image);
-			if ($res){
-				echo "$res";
-			}
+			if ($id)
+				echo "$id";
 		}
 		return true;
 	}

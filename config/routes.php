@@ -3,6 +3,7 @@ return array(
 
 	"gallery/image/([0-9]+)" => "gallery/image/$1",
 	"gallery/page-([0-9]+)" => "gallery/index/$1",
+	"gallery/makeImage" => "gallery/makeImage",
 	"comment/addComment" =>"comment/addComment",
 	"comment/delComment" =>"comment/delComment",
 	"like/addLike" =>"like/addLike",

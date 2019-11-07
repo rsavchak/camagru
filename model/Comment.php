@@ -2,8 +2,7 @@
 
 class Comment{
 
-		public static function addComment(int $image_id, int $user_id, string $comment)
-	{
+	public static function addComment(int $image_id, int $user_id, string $comment){
 		$db = Db::getConnection();
 		$date = date('M d, Y, H:i');
 		$sql = "INSERT INTO comments (user_id, image_id, comment, date) 
@@ -15,9 +14,15 @@ class Comment{
 		$result->bindParam(":date", $date, PDO::PARAM_STR);
 		$result->execute();
 		$id = $db->lastInsertId();
-		return $id;
+		if (isset($id)){
+			$login = Account::getUser($user_id)['login'];
+			return json_encode([
+				'id' => $id,
+				'login' => $login
+			]);
+		}
 
-
+		return false;
 	}
 
 	public static function getComments($image_id){
@@ -29,9 +34,8 @@ class Comment{
 		$i = 0;
 		$comments = array();
 		while ($row = $result->fetch()){
-
 			$comments[$i]['id'] = $row['id'];
-			$comments[$i]['user_id'] = $row['user_id'];
+			$comments[$i]['user'] = Account::getUser($row['user_id']);
 			$comments[$i]['image_id'] = $row['image_id'];
 			$comments[$i]['comment'] = $row['comment'];
 			$comments[$i]['date'] = $row['date'];
@@ -46,6 +50,7 @@ class Comment{
 		$result = $db->prepare($sql);
 		$result->bindParam(":id", $comment_id, PDO::PARAM_INT);
 		$result->execute();
+	
 		return $result;
 	}
 }

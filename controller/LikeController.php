@@ -8,7 +8,7 @@ class LikeController{
 			$image_id = $_POST['image_id'];
 			$res = Like::addLike($image_id, $user_id);
 			if ($res)
-				echo "SUCCESS";
+				echo "like";
 		}
 		return true;
 	}
@@ -20,7 +20,7 @@ class LikeController{
 			$image_id = $_POST['image_id'];
 			$res = Like::dissLike($image_id, $user_id);
 			if ($res)
-				echo "SUCCESS";
+				echo "dislike";
 		}
 		return true;
 	}
